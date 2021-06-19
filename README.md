@@ -9,12 +9,15 @@ The project must run in a windowed application. It should be able to start up wi
 - Store previous sync information (when two folders were last synced, what changes were made, etc)
 - Have a list of all folders that are synced
 - A nice and big 'SYNC NOW' button
+
 The following features are optional and can be implemented for further functionality:
 - An application update functionality
 - The ability to sync folders across different devices over the same WiFi network
+
 - Random Easter eggs in the code
 - Sync recovery and/or sync undo
 - Report bug feature
+
 If any other interesting ideas for features pop up during development, this README will be updated.
 
 If the application starts to catch attention and begins to build a significant number of downloads, it might be a good idea to implement a forum somewhere where users can submit development requests. For now, this project is not planned to be open-source because it is meant to be a learning experience. All the development should be done on GitHub. Learning how to properly use commits, code reviews, issues, and pull requests is also part of this project.
