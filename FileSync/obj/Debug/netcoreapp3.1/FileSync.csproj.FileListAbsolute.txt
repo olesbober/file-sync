@@ -1,0 +1,15 @@
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\bin\Debug\netcoreapp3.1\FileSync.exe
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\bin\Debug\netcoreapp3.1\FileSync.deps.json
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\bin\Debug\netcoreapp3.1\FileSync.runtimeconfig.json
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\bin\Debug\netcoreapp3.1\FileSync.runtimeconfig.dev.json
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\bin\Debug\netcoreapp3.1\FileSync.dll
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\bin\Debug\netcoreapp3.1\FileSync.pdb
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.Form1.resources
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.csproj.GenerateResource.cache
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.AssemblyInfoInputs.cache
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.AssemblyInfo.cs
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.csproj.CoreCompileInputs.cache
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.dll
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.pdb
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.genruntimeconfig.cache
+C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.csproj.AssemblyReference.cache
