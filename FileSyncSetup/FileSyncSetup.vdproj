@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:FileSyncSetup"
+"ProjectName" = "8:FileSyncInstaller"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_67D4DBBB7C7040808680D0F0902B8606"
+        "MsmKey" = "8:_1B4B313F91CA4DB6B027F2371CD768EA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +43,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -59,6 +75,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -76,14 +100,24 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_8B5D3ED81F6649B29AA7732C6C0B6702"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_67D4DBBB7C7040808680D0F0902B8606"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B4B313F91CA4DB6B027F2371CD768EA"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Pictures\\Icons\\dopetyte.ico"
-            "TargetName" = "8:dopetyte.ico"
+            "SourcePath" = "8:..\\installer_icon.ico"
+            "TargetName" = "8:installer_icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_44041067715A41CA92A17937F23F1123"
             "Condition" = "8:"
@@ -115,17 +149,6 @@
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_3D54C737D39B4954A83411CDF45A8F28"
-                    {
-                    "Name" = "8:FileSync"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_73D75555DA5D4F2B92312809D7CE8EC7"
-                        "Folders"
-                        {
-                        }
-                    }
                 }
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_44041067715A41CA92A17937F23F1123"
@@ -166,24 +189,24 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:FileSyncSetup"
-        "ProductCode" = "8:{781D51CC-5C36-4B48-887F-F790E1623D87}"
-        "PackageCode" = "8:{F25F0EFA-72A9-4C0F-BD04-6647AB544395}"
+        "ProductName" = "8:FileSync"
+        "ProductCode" = "8:{3E023D71-6B49-40EE-B62A-3B4DB7CD733D}"
+        "PackageCode" = "8:{E5E7450C-9B71-43D3-A753-3858891EACA3}"
         "UpgradeCode" = "8:{E19911E4-1700-4AEE-9CA5-6256BE8C706F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "ProductVersion" = "8:0.0.1"
+        "Manufacturer" = "8:Engineering Boys"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:FileSyncSetup"
+        "Title" = "8:FileSync"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Engineering Boys"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:The first version of FileSync."
+        "ARPCOMMENTS" = "8:An app that syncs two folders."
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
@@ -288,32 +311,18 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1279A0FCD73349199926941E4CB1EAD2"
-            {
-            "Name" = "8:FileSync Installer"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_F29AFC8D4E244B4F98DA04B164CC01BF"
-            "Folder" = "8:_B5DBAA76C2104FD0B4BF5520D4639353"
-            "WorkingFolder" = "8:_44041067715A41CA92A17937F23F1123"
-            "Icon" = "8:_67D4DBBB7C7040808680D0F0902B8606"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_51FFD6A2059F443A859E9C0A8726BABB"
             {
-            "Name" = "8:FileSync"
+            "Name" = "8:FileSyncInstaller"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_F29AFC8D4E244B4F98DA04B164CC01BF"
-            "Folder" = "8:_3D54C737D39B4954A83411CDF45A8F28"
+            "Folder" = "8:_0C8547821E2A4BCBBBFF5B80DF3E711D"
             "WorkingFolder" = "8:_44041067715A41CA92A17937F23F1123"
-            "Icon" = "8:_67D4DBBB7C7040808680D0F0902B8606"
+            "Icon" = "8:_1B4B313F91CA4DB6B027F2371CD768EA"
             "Feature" = "8:"
             }
         }

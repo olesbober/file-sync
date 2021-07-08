@@ -12,4 +12,3 @@ C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSy
 C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.dll
 C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.pdb
 C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.genruntimeconfig.cache
-C:\Users\Oles\Documents\GitHub\file-sync\FileSync\obj\Debug\netcoreapp3.1\FileSync.csproj.AssemblyReference.cache
