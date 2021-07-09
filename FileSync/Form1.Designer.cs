@@ -42,7 +42,7 @@ namespace FileSync
             // 
             this.folder1button.Location = new System.Drawing.Point(12, 12);
             this.folder1button.Name = "folder1button";
-            this.folder1button.Size = new System.Drawing.Size(133, 39);
+            this.folder1button.Size = new System.Drawing.Size(133, 34);
             this.folder1button.TabIndex = 0;
             this.folder1button.Text = "Pick Folder 1";
             this.folder1button.UseVisualStyleBackColor = true;
