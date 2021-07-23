@@ -3,3 +3,4 @@
 /installer_icon.png
 FileSync/obj/**
 FileSync/.vs/**
+FileSync/bin/**
