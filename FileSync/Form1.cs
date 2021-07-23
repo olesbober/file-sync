@@ -33,7 +33,8 @@ namespace FileSync
             foreach (string file in folder_files)
             {
                 // If the file f is in folder fol, return false.
-                if (fol + f == file)
+                //if (fol + '\\' + f == file) - EV,OB alt method of combining 
+                if (System.IO.Path.Combine(fol, f) == file)
                 {
                     return false;
                 }
@@ -45,18 +46,22 @@ namespace FileSync
         private void sync_Folders(string fol1, string fol2)
         {
             // Get all files in both folders.
-            string[] folder1_files = Directory.GetFiles(fol1, "*", SearchOption.AllDirectories);
+            string[] folder1_files = Directory.GetFiles(fol1, "*", SearchOption.AllDirectories);    
             string[] folder2_files = Directory.GetFiles(fol2, "*", SearchOption.AllDirectories);
 
             foreach (string file in folder1_files)
             {
                 // Remove the path leading up to the filename.
                 // This leaves just the filename, which is necessary for syncing with the other folder.
-                string f = file.Remove(0, fol1.Length);
+                string f = file.Remove(0, fol1.Length+1);
+
+                string sourceFile = file;
+                string destFile = System.IO.Path.Combine(fol2, f);
 
                 if (should_Update(f, fol2))
                 {
                     System.Diagnostics.Debug.WriteLine(f + " syncs to " + fol2 + ".");
+                    System.IO.File.Copy(sourceFile, destFile, true);
                 }
             }
             System.Diagnostics.Debug.WriteLine("--------------");
