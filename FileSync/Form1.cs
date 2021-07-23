@@ -18,58 +18,68 @@ namespace FileSync
         public bool folder2Selected = false;
         public FolderBrowserDialog fbd1 = new FolderBrowserDialog();
         public FolderBrowserDialog fbd2 = new FolderBrowserDialog();
+        
         public Form1()
         {
             InitializeComponent();
         }
 
-        // Returns true if file f should be updated in folder fol, returns false otherwise.
-        // Currently, this method only returns true if the file f is not in folder fol.
-        // In the future, there will be other criteria as to why a file should be updated.
+        /**
+            Returns true if file f should be updated in folder fol, returns false otherwise.
+            Currently, this method only returns true if the file f is not in folder fol.
+            In the future, there will be other criteria as to why a file should be updated.
+            @params
+                f: file name
+                fol: the destination folder
+         */
         private bool should_Update(string f, string fol)
         {
             // Get all files in folder fol.
             string[] folder_files = Directory.GetFiles(fol, "*", SearchOption.AllDirectories);
+
             foreach (string file in folder_files)
             {
                 // If the file f is in folder fol, return false.
-                //if (fol + '\\' + f == file) - EV,OB alt method of combining 
-                if (System.IO.Path.Combine(fol, f) == file)
-                {
-                    return false;
+                if (fol + f == file)
+                { 
+                   return false;
                 }
             }
             return true;
         }
 
-        // Syncs folder fol1 with folder fol2.
+        /**
+            Syncs folder fol1 with folder fol2.
+            @params
+                fol1: path of folder 1
+                fol2: path of folder 2
+         */
         private void sync_Folders(string fol1, string fol2)
         {
-            // Get all files in both folders.
-            string[] folder1_files = Directory.GetFiles(fol1, "*", SearchOption.AllDirectories);    
+            string[] folder1_dirs = Directory.GetDirectories(fol1, "*", SearchOption.AllDirectories);
+            string[] folder2_dirs = Directory.GetDirectories(fol2, "*", SearchOption.AllDirectories);
+            string[] folder1_files = Directory.GetFiles(fol1, "*", SearchOption.AllDirectories);
             string[] folder2_files = Directory.GetFiles(fol2, "*", SearchOption.AllDirectories);
 
-            foreach (string file in folder1_files)
+            foreach (string d in folder1_dirs)
             {
-                // Remove the path leading up to the filename.
-                // This leaves just the filename, which is necessary for syncing with the other folder.
-                string f = file.Remove(0, fol1.Length+1);
+                string f = d.Remove(0, fol1.Length);
+                string targetDir = fol2 + f;
+                DirectoryInfo di = Directory.CreateDirectory(targetDir);
 
-                string sourceFile = file;
-                string destFile = System.IO.Path.Combine(fol2, f);
-
-                if (should_Update(f, fol2))
-                {
-                    System.Diagnostics.Debug.WriteLine(f + " syncs to " + fol2 + ".");
-                    System.IO.File.Copy(sourceFile, destFile, true);
-                }
+                sync_Folders(d, targetDir);
             }
-            System.Diagnostics.Debug.WriteLine("--------------");
-            System.Diagnostics.Debug.WriteLine("Folder 2 Files");
-            System.Diagnostics.Debug.WriteLine("--------------");
-            foreach (string file in folder2_files)
+
+            foreach (string f in folder1_files)
             {
-                System.Diagnostics.Debug.WriteLine(file);
+                string file = f.Remove(0, fol1.Length);
+                string targetDir = fol2 + file;
+
+                if (should_Update(file, fol2))
+                {
+                    System.IO.File.Copy(f, targetDir, true);
+                    System.Diagnostics.Debug.WriteLine(f + " syncs to " + fol2 + ".");
+                }
             }
         }
 
