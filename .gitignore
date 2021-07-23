@@ -1,3 +1,4 @@
-file_sync_outline.*
-icon.png
-installer_icon.png
+/file_sync_outline.*
+/icon.png
+/installer_icon.png
+FileSync/obj/**
