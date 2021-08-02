@@ -121,6 +121,7 @@ namespace FileSync
             {
                 syncnowlabel.Text = "This should now sync the contents of the two folders.";
                 sync_Folders(fbd1.SelectedPath, fbd2.SelectedPath);
+                sync_Folders(fbd2.SelectedPath, fbd1.SelectedPath);
             }
         }
     }
