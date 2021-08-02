@@ -92,7 +92,7 @@ namespace FileSync
             }
             else
             {
-                folder1label.Text = "Something bad happened.";
+                folder1label.Text = "No folder selected! Please choose a folder.";
                 folder1Selected = false;
             }
         }
@@ -106,7 +106,7 @@ namespace FileSync
             }
             else
             {
-                folder2label.Text = "Something bad happened.";
+                folder2label.Text = "No folder selected! Please choose a folder.";
                 folder2Selected = false;
             }
         }
