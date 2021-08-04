@@ -26,24 +26,25 @@ namespace FileSync
 
         /**
             Returns true if file f should be updated in folder fol, returns false otherwise.
-            Currently, this method only returns true if the file f is not in folder fol.
-            In the future, there will be other criteria as to why a file should be updated.
+            Currently, this method returns true if the file f is not in folder dst or if file
+            f in fpath was more recently modified than in folder dst. 
             @params
                 f: file name
-                fol: the destination folder
+                fpath: path to file f
+                dst: the destination folder
          */
-        private bool should_Update(string f, string fol, string origDir)
+        private bool should_Update(string f, string fpath, string dst)
         {
             // Get all files in folder fol.
-            string[] folder_files = Directory.GetFiles(fol, "*", SearchOption.AllDirectories);
+            string[] folder_files = Directory.GetFiles(dst, "*", SearchOption.AllDirectories);
 
             foreach (string file in folder_files)
             {
                 // If the file f is in folder fol, return false.
-                if (fol + f == file)
+                if (dst + f == file)
                 {
-                    DateTime dt1 = Directory.GetLastWriteTime(fol + f);
-                    DateTime dt2 = Directory.GetLastWriteTime(origDir);
+                    DateTime dt1 = Directory.GetLastWriteTime(dst + f);
+                    DateTime dt2 = Directory.GetLastWriteTime(fpath);
 
                     if (dt1 < dt2)
                     {
@@ -82,7 +83,7 @@ namespace FileSync
                 string file = f.Remove(0, fol1.Length);
                 string targetDir = fol2 + file;
 
-                if (should_Update(file, fol2, f))
+                if (should_Update(file, f,fol2))
                 {
                     System.IO.File.Copy(f, targetDir, true);
                     System.Diagnostics.Debug.WriteLine(f + " syncs to " + fol2 + ".");
