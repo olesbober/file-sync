@@ -18,7 +18,7 @@ namespace FileSync
         public bool folder2Selected = false;
         public FolderBrowserDialog fbd1 = new FolderBrowserDialog();
         public FolderBrowserDialog fbd2 = new FolderBrowserDialog();
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace FileSync
                 f: file name
                 fol: the destination folder
          */
-        private bool should_Update(string f, string fol)
+        private bool should_Update(string f, string fol, string origDir)
         {
             // Get all files in folder fol.
             string[] folder_files = Directory.GetFiles(fol, "*", SearchOption.AllDirectories);
@@ -41,8 +41,15 @@ namespace FileSync
             {
                 // If the file f is in folder fol, return false.
                 if (fol + f == file)
-                { 
-                   return false;
+                {
+                    DateTime dt1 = Directory.GetLastWriteTime(fol + f);
+                    DateTime dt2 = Directory.GetLastWriteTime(origDir);
+
+                    if (dt1 < dt2)
+                    {
+                        return true;
+                    }
+                    return false;
                 }
             }
             return true;
@@ -75,7 +82,7 @@ namespace FileSync
                 string file = f.Remove(0, fol1.Length);
                 string targetDir = fol2 + file;
 
-                if (should_Update(file, fol2))
+                if (should_Update(file, fol2, f))
                 {
                     System.IO.File.Copy(f, targetDir, true);
                     System.Diagnostics.Debug.WriteLine(f + " syncs to " + fol2 + ".");
@@ -85,6 +92,7 @@ namespace FileSync
 
         private void folder1button_Click(object sender, EventArgs e)
         {
+
             if (fbd1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 folder1label.Text = "Folder 1 is " + fbd1.SelectedPath;
@@ -92,7 +100,7 @@ namespace FileSync
             }
             else
             {
-                folder1label.Text = "Something bad happened.";
+                folder1label.Text = "No folder selected! Please choose a folder.";
                 folder1Selected = false;
             }
         }
@@ -106,7 +114,7 @@ namespace FileSync
             }
             else
             {
-                folder2label.Text = "Something bad happened.";
+                folder2label.Text = "No folder selected! Please choose a folder.";
                 folder2Selected = false;
             }
         }
@@ -121,6 +129,7 @@ namespace FileSync
             {
                 syncnowlabel.Text = "This should now sync the contents of the two folders.";
                 sync_Folders(fbd1.SelectedPath, fbd2.SelectedPath);
+                sync_Folders(fbd2.SelectedPath, fbd1.SelectedPath);
             }
         }
     }
